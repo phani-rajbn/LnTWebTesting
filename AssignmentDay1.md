@@ -1,4 +1,5 @@
 # Day 1 Assignment
+<hr/>
 <pre>
 Assignments for the day:
 Develop a Fan made Website of UR fav sporting club. 
