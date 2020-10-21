@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Images in HTML</title>
+    <style>
+        img{
+           /*float:right;*/
+           display:block;
+        }
+        p{
+            right:0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creating Images</h1>
+    <div style="width: 40%; float:right">
+        <hr>
+        <p>
+            <img src="../Assets/Images/Mysore.jpg"  alt="Mysore Palace"/>
+        </p>
+        <p>Providing some information about the image. Alt will be used if the image is not loaded in the document.</p> 
+    </div>
+    <div>
+        <h2>Map based Images</h2>
+        <hr>
+        <img src="../Assets/Images/SouthIndia.jpg" usemap="#States"/>
+        <map name="States">
+            <area shape="rect" coords="0,0, 100, 100" alt="kar" href="https://en.wikipedia.org/wiki/Karnataka"/>
+            <area shape="rect" coords="100,0, 100, 100" alt="ap" href="https://en.wikipedia.org/wiki/Andhra_Pradesh"/>
+            <area shape="rect" coords="110,110, 100, 100" alt="TN" href="https://en.wikipedia.org/wiki/Tamilnadu"/>
+            <area shape="rect" coords="220,220, 100, 100" alt="KER" href="https://en.wikipedia.org/wiki/Kerala"/>
+        </map>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in HTML</title>
+    <style>
+        input, select{
+            border: 1px solid green;
+            border-radius: 5px;
+            background-color: aliceblue;
+            color : brown;
+            width: 240px;
+        }
+        .gender{
+            width: auto;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1>Forms in HTML</h1>
+    <hr>
+    <div>
+        <h2 class="gender">Student Registration Form</h2>
+        <form>
+            <p>Enter the Name: <input type="text" placeholder="Name Please!!!"> </p>
+            <p>Enter the Email Address: <input type="email" placeholder="Email Address Please!!!"> </p>
+            <p>Enter the Date of Birth: <input type="date"/></p>
+            <p>Select UR qualification:
+                <select>
+                    <option>-----SELECT FROM THE LIST -----</option>
+                    <option>Graduation</option>
+                    <option>Under Graduation</option>
+                    <option>Post Graduation</option>
+                    <option>School</option>
+                    <option>Research</option>
+                </select>
+            </p>
+            <p>
+                <datalist id="lstCities">
+                    <option>Chennai</option>
+                    <option>Coimbatore</option>
+                    <option>Bangalore</option>
+                    <option>Mumbai</option>
+                    <option>Mysore</option>
+                    <option>Pune</option>
+                    <option>Hubli</option>
+                    <option>Ahmedabad</option>
+                    <option>Noida</option>
+                    <option>Hyderabad</option>
+                    <option>Vizag</option>
+                    <option>Vijayawada</option>
+                    <option>Gulbarga</option>
+                    <option>Madurai</option>
+                    <option>Trichi</option>
+                    <option>Nagpur</option>
+                </datalist>
+                Select the Choice of Training:
+                <input list="lstCities" placeholder="Select the City"/>
+            </p>
+            <p>Rate our Website:
+                <input type="range" min="1" max="10" step="1"/>
+            </p>
+            <p>
+                Search:
+                <input type="search" placeholder="Search Here"/>
+            </p>
+            <p>
+                Gender:
+                <input class="gender" type="radio" name="gender"/>Male
+                <input class="gender" type="radio" name="gender"/>Female
+                <input class="gender" type="radio" name="gender"/>Other
+            </p>
+            <p><button>Register!!!</button></p>
+        </form>
+    </div>
+</body>
+</html>
