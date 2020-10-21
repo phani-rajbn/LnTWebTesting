@@ -1,6 +1,7 @@
 # LnTWebTesting
 <hr/>
-Day 1:
+
+##  Day 1:<br/>
 1.  HTML Basics
 2.  CSS Basics
 3.  HTML Tables and Lists
