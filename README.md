@@ -49,4 +49,5 @@ U could use colspan to span one column across multiple columns in the row of the
 Real time usage of a Table would be a scenario where data is fetched from an External source as an array and U would iterate thro the array elements to dynamically add rows into the table. 
 ---------------------------------------------------------------------
 
+
 </pre>
