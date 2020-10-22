@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        //function is a keyword used to create a function in JS. There are 2 ways to create functions in js. Named function and Anonymous function
+        //Function created by a name is called named function..
+        function testFunc(){
+            alert("test Func is called");
+        }
+        //Custom function created to check if a string is no or not
+        function checkForNumber(val){
+            if(isNaN(val))
+                return 0;
+            else 
+                return parseFloat(val);
+        }
+        //U invoke the named function using the function's name followed by (). 
+        testFunc();
+        //Anonymous Functions are functions with no name but are assigned to some variable which can be used to invoke it.
+        const simpleFunc = function(){
+            alert("Anonymous Methods")
+        }
+        //Anonymous methods are invoked using the assigned variable. 
+        simpleFunc();
+        //Functions can have args also....
+        const addFunc = function(v1, v2){
+            return v1 + v2;
+        }
+        const v1 = checkForNumber(prompt("Enter the first value"));
+        const v2 = checkForNumber(prompt("Enter the second value"));
+        console.log(addFunc(v1, v2));  
+        //prompt returns string. When 2 strings are computed with + operator, they concatenate. So we convert the string to a number by using functions like parseInt(Whole numbers) or parseFloat(floating numbers).     
+        //NaN(Not a Number) is a value for the variable when it tries to convert a non numeric string to a number.  Use a function called isNan to check if the string data is a valid number or not. 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

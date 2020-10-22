@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+            const fValue = 123;
+            const secondValue = 234
+            const name = "Phaniraj"
+            const address = "RR nagar, Bangalore"
+            //const is new in ES6 which will allow to create variables that dont change.
+            //console.log(name + " from " + address) 
+            alert(name + " from " + address)  
+            //var allows to modify the data once created. 
+            var data = 123;//number
+            console.log("The value: " + data + "The Data Type: " + typeof(data));
+            data = 234.345;////this is also a number. 
+            data = "Something else";//string
+            data = true;//boolean
+            data = {
+                "name": "Phaniraj", 
+                "address" : "bangalore"
+            };//object
+        /*
+        JS is a dynamic language, the type of the variable is determined by the value U assign to it. 
+        If U declare a variable and dont assign a value, it is called undefined. 
+        The syntax of creating a variable remains same for any kind of data type. However implicitly there are 4 types of data suppored in JS: number, string, boolean and object. 
+        undefined and null are other types which are set only for non defined variables and objects which are not set.
+        From ES6, var is replaced with let keyword. let is said to be more precised and powerfull. 
+        let is more scoped based compared to var. when u declare a variable as let, its scope is limited to the body that has declared it. var retains the scope even after the body has ended.  
+        */    
+       {
+           let myVal = 123;
+       }
+       for(let i = 0; i < 10; i++)
+        console.log(i);    
+       //console.log(myVal);
+       console.log(i);
+        </script>
+    </head>
+</html>

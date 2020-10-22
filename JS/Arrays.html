@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script>
+            ////////////////Arrays in JS://///////////////////////
+            // const elements = ["Apple", "Mango", "Orange", "Bananas"];
+            // //This is new in ES6 where U can iterate thro the collection with a loop, ensures that it is always within the bounds of the array, U dont need an index to access the elements of the array. It is the most prefered way of reading data from an array....
+            // for (const element of elements) {
+            //     console.log(element)
+            // }
+            ///////////Using Array class///////////////////////
+            // const names = new Array(5);//Syntax of creating array where the values are not set initially...
+            // for (let index = 0; index < names.length; index++) {
+            //     names[index] = prompt("Enter the Name");
+            //    //values are set in the array using index... 
+            // }
+            // //names = new Array(20);=>This line gives an error as U try to re-assign a const value. 
+
+            // for (const element of names) {
+            //     console.log(element);
+            // }
+            /////////////////Blank Array and adding data////////////////
+            let basket = [];
+            let index = 0;
+            do {
+                const item = prompt("Enter the fruit to buy");
+                basket.push(item);//adds an item to the array...
+                //try to add the item using unshift method. 
+                index++;
+            } while (index != 5);
+            //push adds the item to the bottom of the array...
+            //unshift adds the item to the top of the array...
+            //pop is used to remove the last item of the array...
+            //shift is used to remove the first item of the array..
+            //splice is used to add/remove in-between items
+        </script>
+    </head>
+    <body>
+        <h3>List of Fruits in UR basket!!!</h3>
+        <ol type="1">
+            <script>
+            for (const item of basket) {
+                document.write("<li>" + item + "</li>")
+            }
+            </script>
+        </ol>
+    </body>
+    <!-- 
+        push vs pop vs shift vs unshift.
+    -->
+    
+</html>

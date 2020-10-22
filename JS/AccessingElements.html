@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Accessing DOM Elements</title>
+</head>
+<body>
+    <h1>Accessing DOM Elements</h1>
+    <hr>
+    <div>
+        <p class="data" id="pName">The Name is Phaniraj</u></b></p>
+        <p class="data" id="pAdr">The Address is Bangalore</p>
+        <p class="data" id="pSal">The Salary is Rs. 65,000</p>
+    </div>
+    <hr>
+    <div>
+        <ul id="lsData">
+
+        </ul>
+    </div>
+    <script>
+        //first get the reference of the element U want to read..
+        let p1 = document.getElementById("pName");
+        console.log(p1.innerText);//innerText is used to extract the content of the element....
+        
+        p1 = document.getElementById("pAdr");
+        console.log(p1.innerText);
+        
+        p1 = document.getElementById("pSal");
+        console.log(p1.innerText);
+        /* let pCollection = document.getElementsByClassName("data");
+        for (let index = 0; index < pCollection.length; index++) {
+            const element = pCollection[index];
+            console.log(element.innerText)
+        } */
+        /////////////Adding items to a list///////////////////
+        const items = [];
+        let processing = true;
+        const list = document.getElementById("lsData");
+        do {
+            items.push(prompt("Enter the Item to add"));
+            list.innerHTML = "";//Remove old items....
+            for (const item of items) {
+                list.innerHTML += "<li>" + item + "</li>";
+            }            
+            processing = confirm("Do U want to add one more?"); 
+        } while (processing);
+        /*
+        innerText vs innerHTML:
+        Use innerText to get/set only CDATA(non Tagged Text)
+        Use innerHTML to get/set tagged data(Text that contains HTML tags).
+        */
+    </script>
+</body>
+</html>
