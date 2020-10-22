@@ -2,28 +2,62 @@
 <html lang="en">
 <head>
     <title>Document</title>
-    <script src="./CommonFunctions.js"></script>
-    <style>
-        *{
+    <script src="./CommonFunctions.js"></script><style>
+        * {
             background-color: bisque;
-            font-size:24pt;
+            font-size: 24pt;
             padding: 5px;
-            margin: 5px;  
+            margin: 5px;
         }
-        button{
+    
+        button {
             background-color: lightblue;
             width: 75px;
             height: 50px;
-            color:blue;
+            color: blue;
         }
-        input{
+    
+        input {
             height: 45px;
         }
-        input:focus{
+    
+        input:focus {
             background-color: goldenrod;
-            color:beige;
+            color: beige;
         }
     </style>
+    <script>
+        function onAdd() {
+            //take the input values..
+            const firstVal = $get("val1").value;
+            const secondVal = $get("val2").value;
+            //call the addFunc that was created in the CommmonFunctions.js
+            const result = addFunc(firstVal, secondVal);
+            //display the result value in the span element 
+            $get("spResult").innerText = result;
+        }
+
+        function onSubstract() {
+            const firstVal = $get("val1").value;
+            const secondVal = $get("val2").value;
+            const result = subFunc(firstVal, secondVal);
+            $get("spResult").innerText = result;
+        }
+
+        function onMultiply() {
+            const firstVal = $get("val1").value;
+            const secondVal = $get("val2").value;
+            const result = mulFunc(firstVal, secondVal);
+            $get("spResult").innerText = result;
+        }
+        function onDivide() {
+            const firstVal = $get("val1").value;
+            const secondVal = $get("val2").value;
+            const result = divFunc(firstVal, secondVal);
+            $get("spResult").innerText = result;
+        }
+
+    </script>
 </head>
 <body>
  <div>
@@ -32,14 +66,14 @@
      <p>Enter the First value: <input type="number" id="val1"></p>
      <p>Enter the Second value: <input type="number" id="val2"></p>
     <p>
-    <button>+</button>
-    <button>-</button>
-    <button>X</button>
-    <button>/</button>
+    <button onclick="onAdd()">+</button>
+    <button onclick="onSubstract()">-</button>
+    <button onclick="onMultiply()">X</button>
+    <button onclick="onDivide()">/</button>
     </p>
      <p>
          The Result:
-         <span></span>
+         <span id="spResult"></span>
      </p>
  </div>   
 </body>
