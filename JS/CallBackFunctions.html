@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CallBack Functions</title>
+    <script src="CommonFunctions.js"></script>
+    <script>
+        //Lambda Expression or Arrow Functions. new in ES6. 
+        const callMe = () => $get("Display").innerText = "Some action is done here"
+        let handler = 0;
+        //const addFunc = (v1, v2) => v1+v2;
+
+        function performAction(){
+            setTimeout(() => $get("Display").innerText = "Apple123", 5000);
+            handler = setInterval(() => {
+                $get("Display").innerHTML += "Function is called for every specific duration<br/>"
+            }, 1000);
+        }
+        function stopAction(){
+            clearInterval(handler)
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="performAction()">Click Me</button>
+        <p id="Display"></p>
+    </div>
+    <div>
+        <button onclick="stopAction()">Stop the Action</button>
+    </div>
+</body>
+</html>
