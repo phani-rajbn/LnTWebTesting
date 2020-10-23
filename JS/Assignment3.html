@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+            width: 45%;
+            padding: 10px;
+            margin: 5px;
+            vertical-align: top;
+            border: 3px solid indigo;
+        }
+    </style>
+    <script src="CommonFunctions.js"></script>
+    <script>
+        class expense{
+            constructor(id, desc, date, amount) {
+                this.slNo = id;
+                this.desc = desc;
+                this.date = date;
+                this.amount = amount;
+            }
+        }
+
+        class expenseManager{
+            constructor() {
+                this.expenses = [];
+            }
+
+            addExpense(ex){
+                this.expenses.unshift(ex);
+            }
+
+            getAllExpenses(){
+                return this.expenses;
+            }
+        }
+    </script>
+    <script>
+        const mgr = new expenseManager();
+        function populateTable(all){
+            const heading = "<tr><th>Sl No</th><th>Description</th><th>Date</th><th>Amount</th></tr>";
+            $get("expenseTable").innerHTML = heading;
+            for (const ex of all) {
+                let row = "<tr><td>" + ex.slNo + "</td>";
+                row += "<td>" + ex.desc + "</td>"    
+                row += "<td>" + getDate(ex.date) + "</td>"    
+                row += "<td>" + ex.amount + "</td></tr>"
+                $get("expenseTable").innerHTML += row;    
+            }
+        }
+        function onAddExpense(){
+            let id = mgr.getAllExpenses().length;
+            if(id == 0) id++;
+            const desc = $get("desc").value;
+            const date = new Date($get("date").value);
+            const amount = getNumber($get("amount").value);
+            const ex = new expense(id, desc, date, amount);
+            mgr.addExpense(ex);
+            alert("Expense added to the database");
+            $get("desc").value = "";
+            $get("date").value = "";
+            $get("amount").value = "";
+            populateTable(mgr.getAllExpenses());
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>List of Expenses</h2>
+        <hr/>
+        <table border="1" id="expenseTable">
+
+        </table>
+    </div>
+    <div>
+        <h2>Add new Expense</h2>
+        <hr>
+        <input type="text" id="desc" placeholder="Enter the Description">
+        <input type="date" id="date" placeholder="Enter the Date">
+        <input type="number" id="amount" placeholder="Enter the Amount">
+        <button onclick="onAddExpense()">Add Expense</button>
+    </div>
+</body>
+</html>
