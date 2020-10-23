@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Document</title>
+    <script src="CommonFunctions.js"></script>  
     <style>
         body{
             font-size: 16px;
@@ -38,26 +39,90 @@
             width: auto;
             padding-right: 15px;
         }
+        .row{
+            padding-bottom: 15px;
+        }
+        .err{
+            font-size:0.8em;
+            color :indianred;
+        }
+        button{
+            display:block;
+            width:95%;
+            height: 50px;
+            border-color:yellow;
+            background-color:lightskyblue;
+            margin-top: 15px;
+            box-shadow: 0 3px 4px blue;
+        }
     </style>
+    <script>
+        function showErr(ele, msg){
+            $get(ele).innerText = msg;
+        }
+        function validate(){
+            //get all the values....
+            let name = document.regForm.name.value;
+            let email = document.regForm.email.value;
+            let mobile = document.regForm.phone.value;
+            let country = document.regForm.country.value;
+            let gender = document.regForm.gender.value;
+            //name validation
+            if(name == "" || name == null){
+                showErr("errName", "Name is mandatory")
+                return false;
+            }else{
+                showErr("errName", "")
+            }
+            //email validation    
+            if(email == ""){
+                showErr("errEmail", "Email is mandatory")
+                return false;
+            }else{
+                showErr("errEmail", "")
+            }
+            let regEx = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+            if(regEx.test(email) == false){
+                showErr("errEmail", "Email is not in a valid format")
+                return false;
+            } else {
+                showErr("errEmail", "")
+            }
+            //phone no validation
+            regEx = new RegExp("/^[1-9]\d{10}$/");
+            if(mobile == "" || (!regEx.test(mobile)))
+                return false;
+            //country validation
+            if(country == "Select Option")
+                return false;
+
+            //gender validation:
+            if(gender == "")
+                return false;    
+            return true;//After all the validations are done successfully
+        }
+    </script>
 </head>
 <body>
-    <form action="">
+    <form action="" name="regForm" novalidate="true" onsubmit="return validate()">
         <h1>User Application Form</h1>
-        <div>
+        <div class="row">
             <label for="name">Full Name</label>
-            <input type="text" id="name"/>
+            <input type="text" name="name" id="name"/>
+            <div id="errName" class="err"></div>
         </div>
-        <div>
+        <div class="row">
             <label for="email">Email Address</label>
-            <input type="text" id="email" />
+            <input type="email" name="email" id="email" />
+            <div id="errEmail" class="err"></div>
         </div>
-        <div>
+        <div class="row">
             <label for="phone">Mobile phone</label>
-            <input type="text" id="phone" />
+            <input type="text" id="phone" name="phone" />
         </div>
-        <div>
+        <div class="row">
             <label for="country">Country</label>
-            <select id="country">
+            <select id="country" name="country">
                 <option>Select Option</option>
                 <option>Australia</option>
                 <option>India</option>
@@ -66,17 +131,17 @@
                 <option>UK</option>
             </select>
         </div>
-        <div>
+        <div class="row">
             <label>Gender</label>
-            <input  class="inline" type="radio" name="gender" />Male
-            <input  class="inline" type="radio" name="gender" />Female
+            <input class="inline" type="radio" name="gender" />Male
+            <input class="inline" type="radio" name="gender" />Female
         </div>
-        <div>
-            <label>Hobbies</label>
-            <input  class="inline" type="checkbox" id="hobbies">Movies
-            <input  class="inline" type="checkbox" id="hobbies">Sports
-            <input  class="inline" type="checkbox" id="hobbies">Travel
-            <input  class="inline" type="checkbox" id="hobbies">Music
+        <div class="row">
+            <label>Hobbies(Optional)</label>
+            <input class="inline" name="hobbies" type="checkbox" id="hobbies">Movies
+            <input class="inline" type="checkbox" name="hobbies" id="hobbies">Sports
+            <input class="inline" type="checkbox" id="hobbies" name="hobbies">Travel
+            <input class="inline" name="hobbies" type="checkbox" id="hobbies">Music
         </div>
         <button>Register</button>
     </form>
