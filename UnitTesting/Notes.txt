@@ -1,0 +1,19 @@
+Unit testing is way of testing a certain feature of a program which constitutes a modular structure. Each unit is a self contained program on which U do the functional testing of the unit. 
+JasmineJs is a JS library used to test JS code in UR Web Applications. 
+It contains APIs to perform testings on components, functions, data using JS. 
+U shoud download the JasmineJS lib from the website, alternatively U could also download the npm version of it to execute it in Nodejs Platform. 
+
+Why ue JasmineJS?
+Simple and light weight, doesnt need any additional JS frameworks. 
+Jasmine need not work on DOM structure. 
+It uses the new ES6 syntax like Arrow functions, callback functions and anonymous methods to write the code easily. 
+It is open source and is available on all platforms. 
+
+Install JasmineJS:
+Download the JasmineJS zip file from the github of jasmine that contains:
+lib: Jasmine JS code
+spec: Where U write UR test cases using JavaScript
+src : Where U write the code that needs to be tested(Source code to test).
+SpecRunner.html will run the tests from the browser to give U graphical Representation of UR tests and its results. 
+
+
