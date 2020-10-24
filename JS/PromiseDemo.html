@@ -1,0 +1,29 @@
+<html>
+    <script>
+         function addingNumbersAsync(v1, v2){
+            const p = new Promise((success, failure)=>{
+                //my adding works only for positive numbers...
+                if( v1 >= 0 && v2 >= 0){
+                     setTimeout(() => {
+                         console.log("Atlast we got the result");
+                         const result = v1 + v2;
+                         success(result)
+                     }, 5000);   
+                }else{
+                    failure("This function works only for positive numbers")
+                }
+            }) 
+            return p;
+        }
+        function onSuccess(data){
+            console.log("The added value is " + data);
+        }
+
+        function onFailure(err){
+            console.log(err);
+        }
+        addingNumbersAsync(13,6)
+        .then(onSuccess)
+        .catch(onFailure)           
+    </script>
+</html>

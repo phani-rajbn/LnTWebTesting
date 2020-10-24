@@ -1,0 +1,34 @@
+<html>
+    <script>
+        /*Old syntaxes of Classes using ES5 or previous versions*/
+        /*2 ways to create objects: Singleton objects and other is classes*/
+        const obj = {};;//This is a singleton object...
+        obj.empName = "Phaniraj";
+        obj.empAddress = "Bangalore";
+        obj.empSalary = 6500;
+
+        for (const key in obj) {
+            console.log(`key: ${key}, its Value: ${obj[key]}`);
+        }
+        console.log(JSON.stringify(obj));
+        const copy = obj;
+
+        copy.empAddress = "Mysore";//change one instance's value will reflect on all the other objects...
+        console.log(obj.empAddress)   
+        console.log(copy.empAddress)
+
+    </script>
+    <body>
+        <ul id="lstNames">
+        </ul>
+        <script>
+                let values = [
+                        { "empName": "Gopal" }, { "empName": "Manoj" }, { "empName": "Sunder" }, { "empName": "Allen" }, { "empName": "Arnold" }, { "empName": "Stalone" }, { "empName": "Suraj" }
+                ]
+                let ls = document.getElementById("lstNames");
+                for (const emp of values) {
+                    ls.innerHTML += `<li>${emp.empName}</li>`;
+                }
+        </script>
+    </body>
+</html>
