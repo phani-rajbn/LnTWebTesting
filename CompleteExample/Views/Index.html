@@ -2,6 +2,38 @@
 <html lang="en">
 <head>
     <title>Single Page Application</title>
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/repository.js"></script>
+    <script>
+        function onAdd(){
+            const obj = new empRepository();
+            obj.addNewEmployee(new employee(111, "Phaniraj", "phanirajbn@gmail.com", 65000))
+        }
+        function init(){
+            $("div:gt(0)").hide(2000);
+            $("#showAll").click(function(){
+                $("div:gt(0)").hide(2000);
+                const obj = new empRepository();
+                //this function is async. So wait till the function returns using then clause. 
+                obj.getAllEmployees().then((data)=>{
+                    debugger;
+                    $("div:eq(1)").show(2000);
+                    $.each(data, (index, emp)=>{
+                        const row =`<tr><td>${emp.id}</td>
+                            <td>${emp.name}</td>
+                            <td>${emp.email}</td>
+                            <td>${emp.salary}</td>
+                            <td><a href="#">Edit</a></td>
+                            `;
+                       $("table").append(row)     
+                    })
+                })
+            });
+            //use #for elementwithId
+            $("#addNew").click(onAdd);//hardcoded to test...
+        }
+        $(document).ready(init)
+    </script>
 </head>
 <body>
     <div>
@@ -16,7 +48,13 @@
         <h2>List of Records with Us</h2>
         <hr>
         <table border="1">
-                
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Email</th>
+                <th>Employee Salary</th>
+                <th>Options</th>
+            </tr>    
         </table>
     </div>
     <div>
