@@ -2,9 +2,87 @@
   "employees": [
     {
       "id": "111",
+      "name": "Phaniraj B.N.",
+      "email": "phanirajbn@gmail.com",
+      "salary": "165000",
+      "pic": "Phani.jpeg"
+    },
+    {
+      "id": "111",
       "name": "Phaniraj",
       "email": "phanirajbn@gmail.com",
-      "salary": "65000"
+      "salary": "65000",
+      "pic": "Phani.jpeg"
+    },
+    {
+      "id": "111",
+      "name": "Phaniraj",
+      "email": "phanirajbn@gmail.com",
+      "salary": "65000",
+      "pic": "Phani.jpeg"
+    },
+    {
+      "id": "112",
+      "name": "Albert",
+      "email": "Albert@gmail.com",
+      "salary": "55000",
+      "pic": "Albert.jpeg"
+    },
+    {
+      "id": "113",
+      "name": "Banu Prakash",
+      "email": "banuprakash@gmail.com",
+      "salary": "75000",
+      "pic": "Banu.png"
+    },
+    {
+      "id": "115",
+      "name": "Vinod",
+      "email": "vinod_k1988@gmail.com",
+      "salary": "65000",
+      "pic": "Vinod.jpeg"
+    },
+    {
+      "id": "116",
+      "name": "Tarak",
+      "email": "tarakntr@gmail.com",
+      "salary": "45000",
+      "pic": "Tarak.jpeg"
+    },
+    {
+      "id": "117",
+      "name": "Mahesh",
+      "email": "maheshbabu@gmail.com",
+      "salary": "60000",
+      "pic": "Mahesh.jpeg"
+    },
+    {
+      "id": "118",
+      "name": "Sunder",
+      "email": "sunder.ceo@gmail.com",
+      "salary": "165000",
+      "pic": "Sunder.jpeg"
+    },
+    {
+      "id": "119",
+      "name": "Ravi",
+      "email": "ravibn@gmail.com",
+      "salary": "65000",
+      "pic": "Ravi.jpeg"
+    },
+    {
+      "id": "120",
+      "name": "Rahul Gandhi",
+      "email": "rahulCong@gmail.com",
+      "salary": "45000",
+      "pic": "RGandhi.jpeg"
+    },
+    {
+      "id": "141",
+      "name": "Gopal",
+      "email": "gopal@gmail.com",
+      "salary": "40000",
+      "pic": "Gopal.jpeg"
     }
   ]
 }

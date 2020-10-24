@@ -4,10 +4,35 @@
     <title>Single Page Application</title>
     <script src="../Scripts/jquery.min.js"></script>
     <script src="../Scripts/repository.js"></script>
+    <link rel="stylesheet" href="../Styles/mainStyle.css">
     <script>
+        function prepareAdd(){
+            $("div:gt(0)").hide(2000);
+            $("div").last().show(2000);
+        }
         function onAdd(){
             const obj = new empRepository();
-            obj.addNewEmployee(new employee(111, "Phaniraj", "phanirajbn@gmail.com", 65000))
+            const id = $("#newid").val();
+            const name = $("#newname").val();
+            const email = $("#newemail").val();
+            const salary = $("#newsalary").val();
+            const pic = $("#newpic").val();
+            obj.addNewEmployee(new employee(id, name, email, salary, pic));
+            alert("Employee added!!!");
+            $("div:gt(0)").hide(2000);
+        }
+
+        function saveRecord(){
+            //take inputs from the user...
+            const emp = {};
+            emp.id = $("#spid").text();
+            emp.name = $("#name").val();
+            emp.email = $("#email").val();
+            emp.salary = $("#salary").val();
+            emp.pic = $("#pic").val();
+            const mgr = new empRepository();
+            mgr.updateEmployee(emp);
+            $("div:gt(0)").hide(2000);
         }
         function init(){
             $("div:gt(0)").hide(2000);
@@ -18,19 +43,40 @@
                 obj.getAllEmployees().then((data)=>{
                     debugger;
                     $("div:eq(1)").show(2000);
-                    $.each(data, (index, emp)=>{
-                        const row =`<tr><td>${emp.id}</td>
-                            <td>${emp.name}</td>
-                            <td>${emp.email}</td>
-                            <td>${emp.salary}</td>
-                            <td><a href="#">Edit</a></td>
+                    for (const emp of data) {
+                        const row = `<tr>
+                            <td>
+                                <img src="../Assets/Images/${emp.pic}"/>    
+                            </td>
+                            <td>
+                            <h3>${emp.name}</h3>
+                            <hr/>
+                            <p>${emp.id}</p>
+                            <p>${emp.email}</p>
+                            <p>${emp.salary}</p>
+                            <p><a href="#" class="edit" eid = "${emp.id}">Edit</a></p>
                             `;
-                       $("table").append(row)     
+                        $("table").append(row)                              
+                    }
+                    $(".edit").click(function () {
+                        const id = $(this).attr("eid");
+                        const obj = new empRepository();
+                        $("div:gt(0)").hide(2000);
+                        $("div:eq(2)").show(2000);
+                        obj.getEmployee(id).then((data) => {
+                            $("#spid").text(data.id);
+                            $("#name").val(data.name);
+                            $("#email").val(data.email);
+                            $("#salary").val(data.salary);
+                            $("#pic").val(data.pic);
+                        })
                     })
                 })
             });
             //use #for elementwithId
-            $("#addNew").click(onAdd);//hardcoded to test...
+            $("#addNew").click(prepareAdd);//hardcoded to test...
+            $("#save").click(saveRecord);
+            $("#add").click(onAdd);
         }
         $(document).ready(init)
     </script>
@@ -49,21 +95,29 @@
         <hr>
         <table border="1">
             <tr>
-                <th>Employee ID</th>
-                <th>Employee Name</th>
-                <th>Employee Email</th>
-                <th>Employee Salary</th>
-                <th>Options</th>
+                <th colspan="2">Records</th>
             </tr>    
         </table>
     </div>
     <div>
         <h2>Details of selected Employee</h2>
+        <p>Employee ID: <span id="spid"</p>
+            <p><input type="text" id="name" placeholder="Edit the Name"></p>
+            <p><input id="email" type="email" placeholder="Edit the Email"></p>
+            <p><input id="salary" placeholder="Edit the Salary"></p>
+            <p><input id="pic" placeholder="Edit the Pic"></p>
+            <p><button id="save">Save Changes</p>
         <hr>
     </div>
     <div>
         <h2>New Employee Registration</h2>
         <hr>
+        <p><input type="text" id="newid" placeholder="Enter ID"></p>
+        <p><input type="text" id="newname" placeholder="Edit the Name"></p>
+        <p><input id="newemail" type="email" placeholder="Edit the Email"></p>
+        <p><input id="newsalary" placeholder="Edit the Salary"></p>
+        <p><input id="newpic" placeholder="Edit the Pic"></p>
+        <p><button id="add">Register</p>
     </div>
 </body>
 </html>
